@@ -1,8 +1,52 @@
-# React + Vite
+# SCSSKit ( in progress )
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Everything and a bag of chips hopefully
 
-Currently, two official plugins are available:
+## Table of Contents - TODO
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Configuration](#configuration)
+  - [Breakpoints](#breakpoints)
+  - [Colors](#colors)
+  - [Transitions](#transitions)
+  - [Utilities](#utilities)
+- [SCSSKit Vite Plugin](#scsskit-vite-plugin)
+  - [Installation](#plugin-installation)
+  - [Usage](#plugin-usage)
+  - [Configuration](#plugin-configuration)
+- [Development](#development)
+- [License](#license)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Installation
+
+To install SCSSKit, follow these steps:
+
+1. Clone the repository:
+    ```sh
+    git clone https://github.com/yourusername/scsskit.git
+    ```
+
+2. Navigate to the project directory:
+    ```sh
+    cd scsskit
+    ```
+
+3. Install the dependencies:
+    ```sh
+    npm install
+    ```
+
+4. Start the development server:
+    ```sh
+    npm run dev
+    ```
+
+5. Navigate back to the root directory:
+    ```sh
+    cd ..
+    ```
+
+6. Start the main development server:
+    ```sh
+    npm install && npm run dev
+    ```
