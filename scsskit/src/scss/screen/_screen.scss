@@ -1,0 +1,62 @@
+@use 'sass:map';
+@use 'sass:string';
+@use 'sass:list';
+$config: () !default;
+$breakpoints: map.get($config, breakpoints);
+$breakpoint-keys: map.keys($breakpoints);
+
+@function create-breakpoint-queries() {
+    $breakpoints : map.get($config, breakpoints);
+    $new-breakpoints: ();
+    @each $key, $value in $breakpoints {
+      $new-breakpoints: map.set($new-breakpoints, $key, $value);
+      $str: '';
+  
+        @each $prop, $val in $value {
+          $str: $str + ' (' + $prop + ': ' + $val + ') and ';
+        }
+
+      $str: string.slice($str, 1, string.length($str) - 5);
+      $new-breakpoints: map.set($new-breakpoints, $key, $str);
+    }
+    @return $new-breakpoints;
+}
+
+@function get-breakpoint($breakpoint) {
+  $value: map.get($breakpoints, $breakpoint);
+  @if $value == null {
+    @warn "Breakpoint `#{$breakpoint}` does not exist in breakpoints.";
+  }
+  @return $value;
+}
+
+@function get-breakpoint-conditions($breakpoint) {
+  $conditions: map.get($breakpoints-map, $breakpoint);
+  @if $conditions == null {
+    @warn "Breakpoint `#{$breakpoint}` does not exist in breakpoints.";
+  }
+  @return $conditions;
+}
+
+$breakpoint-queries: create-breakpoint-queries();
+
+
+@function get-breakpoint-query($breakpoint) {
+  $query: map.get($breakpoint-queries, $breakpoint);
+  @if $query == null {
+    @warn "Breakpoint `#{$breakpoint}` does not exist in breakpoints.";
+  }
+  @return $query;
+}
+
+@mixin respond-to($breakpoint) {
+  $query: get-breakpoint-query($breakpoint);
+  @if $query == null {
+    @warn "Breakpoint `#{$breakpoint}` does not exist in breakpoints.";
+  } @else {
+    @media screen and (#{$query}) {
+      @content;
+    }
+  }
+}
+

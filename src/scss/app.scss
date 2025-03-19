@@ -1,0 +1,50 @@
+@use 'scsskit/scss' as sk;
+@use 'sass:map';
+
+.app {
+    @include sk.fill-screen-fixed;
+     background-color: sk.colors-color(light-pink);
+}
+
+.debug {
+    position: absolute;
+    background-color: white;
+}
+
+.boxes { 
+    @include sk.fill;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "box1 box2 box3"
+      "box4 box5 box6"
+      "box7 box8 box9";
+
+    > [class^="box"] {
+        border: 1px solid black;
+    }
+}
+
+@for $i from 1 through 9 {
+    .box#{$i} {
+        grid-area: box#{$i};
+    }
+}
+  
+.breakpoints {
+    position: absolute;
+    z-index: 100;
+    @each $breakpoint in sk.$screen-breakpoint-keys {
+        .breakpoint-#{$breakpoint} {
+            display: none;
+        }
+        @include sk.screen-respond-to($breakpoint) {
+            .breakpoint-#{$breakpoint} {
+                display: block;
+            }
+        }
+    }
+}

@@ -1,0 +1,19 @@
+# Ignore unnecessary files
+node_modules
+dist
+test
+demo
+docs
+.vscode
+.git
+.npmrc
+.npmignore
+package-lock.json
+tsconfig.tsbuildinfo
+.DS_Store
+
+# Ignore build scripts not needed in production
+gulpfile.js
+tsconfig.json
+tsconfig.dev.json
+.env

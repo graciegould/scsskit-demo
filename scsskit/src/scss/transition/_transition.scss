@@ -1,0 +1,31 @@
+@mixin property($property, $duration, $timing-function: ease, $delay: 0s) {
+    transition: $property $duration $timing-function $delay;
+}
+
+@mixin all($duration, $timing-function: ease, $delay: 0s) {
+    transition: all $duration $timing-function $delay;
+}
+
+@mixin group($properties, $duration, $timing-function: ease, $delay: 0s) {
+    @each $property in $properties {
+        transition: #{$property} $duration $timing-function $delay;
+    }
+}
+
+@mixin smooth($property: all, $duration: 0.3s, $timing-function: ease-in-out) {
+    transition: #{$property} #{$duration} #{$timing-function};
+    @content;
+}
+
+@mixin transition-wrap(
+    $transition: smooth,
+    $duration: 0.3s,
+    $property: all,
+    $timing-function: ease-in-out
+) {
+    @if $transition == smooth {
+        @include smooth($property, $duration, $timing-function) {
+            @content;
+        }
+    }
+}
