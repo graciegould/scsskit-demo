@@ -45,11 +45,6 @@ To install SCSSKit, follow these steps:
     ```sh
     npm link . 
     ```
-
-or 
-    ```sh
-    sudo npm link . 
-    ```
     
 7. Navigate back to the root directory:
     ```sh
