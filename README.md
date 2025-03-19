@@ -25,7 +25,7 @@ To install SCSSKit, follow these steps:
     ```sh
     git clone https://github.com/yourusername/scsskit.git
     ```
-    
+
 2. Navigate to the project directory:
     ```sh
     cd scsskit
@@ -47,7 +47,6 @@ To install SCSSKit, follow these steps:
     ```
 
 or 
-
     ```sh
     sudo npm link . 
     ```
